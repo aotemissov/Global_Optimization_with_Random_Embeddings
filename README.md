@@ -22,6 +22,29 @@ As for generic global optimization algorithms (which are mostly effective for sm
 
 ### Algorithms
 
+### Test set
+
+Function | Domain | Global minimum 
+--- | :-: | :-: | 
+[Beale](https://www.sfu.ca/~ssurjano/beale.html) | ![Beale_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-4.5%2C4.5%5D%5E2) | ![Beale_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%200) 
+[Branin](https://www.sfu.ca/~ssurjano/branin.html) | |
+Brent | |
+[Easom](https://www.sfu.ca/~ssurjano/easom.html) ||
+Goldstein-Price ||
+[Hartmann 3](https://www.sfu.ca/~ssurjano/hart3.html) || 
+[Hartmann 6](https://www.sfu.ca/~ssurjano/hart6.html) ||
+[Levy](https://www.sfu.ca/~ssurjano/levy.html) ||
+Perm 4, 0.5 ||
+[Rosenbrock](https://www.sfu.ca/~ssurjano/rosen.html) ||
+[Shekel 5](https://www.sfu.ca/~ssurjano/shekel.html) ||
+[Shekel 7](https://www.sfu.ca/~ssurjano/shekel.html) ||
+[Shekel 10](https://www.sfu.ca/~ssurjano/shekel.html) ||
+Shubert ||
+[Six-hump camel](https://www.sfu.ca/~ssurjano/camel6.html) ||
+Styblinski-Tang ||
+Trid ||
+Zettl || 
+
 ### References
 
 Further resources if you want to know learn more about this project: 
