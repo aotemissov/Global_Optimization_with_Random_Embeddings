@@ -27,23 +27,24 @@ As for generic global optimization algorithms (which are mostly effective for sm
 Function | Domain | Global minimum 
 --- | :-: | :-: | 
 [Beale](https://www.sfu.ca/~ssurjano/beale.html) | ![Beale_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-4.5%2C4.5%5D%5E2) | ![Beale_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%200) 
-[Branin](https://www.sfu.ca/~ssurjano/branin.html) | |
-Brent | |
-[Easom](https://www.sfu.ca/~ssurjano/easom.html) ||
-Goldstein-Price ||
-[Hartmann 3](https://www.sfu.ca/~ssurjano/hart3.html) || 
-[Hartmann 6](https://www.sfu.ca/~ssurjano/hart6.html) ||
-[Levy](https://www.sfu.ca/~ssurjano/levy.html) ||
-Perm 4, 0.5 ||
-[Rosenbrock](https://www.sfu.ca/~ssurjano/rosen.html) ||
-[Shekel 5](https://www.sfu.ca/~ssurjano/shekel.html) ||
-[Shekel 7](https://www.sfu.ca/~ssurjano/shekel.html) ||
-[Shekel 10](https://www.sfu.ca/~ssurjano/shekel.html) ||
-Shubert ||
-[Six-hump camel](https://www.sfu.ca/~ssurjano/camel6.html) ||
-Styblinski-Tang ||
-Trid ||
-Zettl || 
+[Branin](https://www.sfu.ca/~ssurjano/branin.html) | ![Branin_x](https://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7Dx_1%20%26%20%5Cin%20%5B-5%2C10%5D%5C%5C%20x_2%20%26%20%5Cin%20%5B0%2C15%5D%20%5Cend%7Balign*%7D) | ![Branin_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%200.397887)
+[Brent](http://infinity77.net/global_optimization/test_functions_nd_B.html#go_benchmark.Brent) | ![Brent_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-10%2C10%5D%5E2) | ![Brent_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%200)
+[Bukin N6](https://www.sfu.ca/~ssurjano/bukin6.html)| ![BukinN6_x](https://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7D%20x_1%20%26%20%5Cin%20%5B-15%2C-5%5D%20%5C%5C%20x_2%20%26%20%5Cin%20%5B-3%2C3%5D%20%5Cend%7B%7D) | ![BukinN6_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%200) 
+[Easom](https://www.sfu.ca/~ssurjano/easom.html) |![Easom_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-100%2C100%5D%5E2)| ![Easom_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-1)
+[Goldstein-Price](https://www.sfu.ca/~ssurjano/goldpr.html) | ![Goldstein_Price_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-2%2C2%5D%5E2) | ![Goldstein_Price_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%203)
+[Hartmann 3](https://www.sfu.ca/~ssurjano/hart3.html) | ![Hartmann3_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B0%2C1%5D%5E3) | ![Hartmann3_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%203.86278)
+[Hartmann 6](https://www.sfu.ca/~ssurjano/hart6.html) |![Hartmann6_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B0%2C1%5D%5E6) | ![Hartmann6_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%203.32237)
+[Levy](https://www.sfu.ca/~ssurjano/levy.html) | ![Levy_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-10%2C10%5D%5E4) | ![Levy_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%200)
+[Perm 4, 0.5](https://www.sfu.ca/~ssurjano/permdb.html) | ![Perm_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-4%2C4%5D%5E4) | ![Perm_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%200)
+[Rosenbrock](https://www.sfu.ca/~ssurjano/rosen.html) | ![Rosenbrock_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-5%2C10%5D%5E3) | ![Rosenbrock_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%200)
+[Shekel 5](https://www.sfu.ca/~ssurjano/shekel.html) | ![Shekel5_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B0%2C10%5D%5E4) | ![Shekel5_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%2010.1532)
+[Shekel 7](https://www.sfu.ca/~ssurjano/shekel.html) |![Shekel7_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B0%2C10%5D%5E4)|![Shekel7_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%2010.4029)
+[Shekel 10](https://www.sfu.ca/~ssurjano/shekel.html) |![Shekel10_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B0%2C10%5D%5E4)|![Shekel10_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%2010.5364)
+[Shubert](https://www.sfu.ca/~ssurjano/shubert.html) | ![Shubert_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-10%2C10%5D%5E2) | ![Shubert_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%20186.7309)
+[Six-hump camel](https://www.sfu.ca/~ssurjano/camel6.html) | ![Camel_x](https://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7D%20x_1%20%26%20%5Cin%20%5B-3%2C3%5D%20%5C%5C%20x_2%20%26%20%5Cin%20%5B-2%2C2%5D%20%5Cend%7B%7D) | ![Camel_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%201.0316)
+[Styblinski-Tang](https://www.sfu.ca/~ssurjano/stybtang.html) |![Styblinski_Tang_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-5%2C5%5D%5E4)| ![Styblinski_Tang_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%20156.664)
+[Trid](https://www.sfu.ca/~ssurjano/trid.html) |![Trid_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-25%2C25%5D%5E5)| ![Trid_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%2030)
+[Zettl](http://www.geocities.ws/eadorio/mvf.pdf) |![Zettl_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-5%2C5%5D%5E2)| ![Zettl_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%200.00379)
 
 ### References
 
