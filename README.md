@@ -16,13 +16,15 @@ having multiple local and global extrema, or they are black-box, so that their c
 
 As for generic global optimization algorithms (which are mostly effective for small dimensional problems), they can be broadly categorized into two groups: deterministic and stochastic. A method is called deterministic if it can provide theoretical guarantees that the value of a produced solution is larger than the value of the true global minimum by at most ![epsilon](https://latex.codecogs.com/svg.latex?%5Cepsilon) for a pre-specified ![epsilon](https://latex.codecogs.com/svg.latex?%5Cepsilon%20%3E%200) ([Liberti and Kucherenko, 2005](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1475-3995.2005.00503.x)). Stochastic methods, on the other hand, do not provide such guarantees and can only produce probabilistic bounds that the generated solution is indeed global. Some of the most popular global optimization methods include Branch & Bound, random search methods, Bayesian Optimization and multi-start methods.
 
-
+### Functions with low effective dimensionality
 
 ### A technique of Random Embeddings
 
 ### Algorithms
 
-### Test set
+### Synthetically constructed test functions
+
+### Low-dimensional test set
 
 Function | Domain | Global minimum 
 --- | :-: | :-: | 
@@ -41,7 +43,7 @@ Function | Domain | Global minimum
 [Shekel 7](https://www.sfu.ca/~ssurjano/shekel.html) |![Shekel7_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B0%2C10%5D%5E4)|![Shekel7_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%2010.4029)
 [Shekel 10](https://www.sfu.ca/~ssurjano/shekel.html) |![Shekel10_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B0%2C10%5D%5E4)|![Shekel10_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%2010.5364)
 [Shubert](https://www.sfu.ca/~ssurjano/shubert.html) | ![Shubert_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-10%2C10%5D%5E2) | ![Shubert_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%20186.7309)
-[Six-hump camel](https://www.sfu.ca/~ssurjano/camel6.html) | ![Camel_x](https://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7D%20x_1%20%26%20%5Cin%20%5B-3%2C3%5D%20%5C%5C%20x_2%20%26%20%5Cin%20%5B-2%2C2%5D%20%5Cend%7B%7D) | ![Camel_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%201.0316)
+[Six-hump camel </br> (Camel)](https://www.sfu.ca/~ssurjano/camel6.html) | ![Camel_x](https://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7D%20x_1%20%26%20%5Cin%20%5B-3%2C3%5D%20%5C%5C%20x_2%20%26%20%5Cin%20%5B-2%2C2%5D%20%5Cend%7B%7D) | ![Camel_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%201.0316)
 [Styblinski-Tang](https://www.sfu.ca/~ssurjano/stybtang.html) |![Styblinski_Tang_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-5%2C5%5D%5E4)| ![Styblinski_Tang_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%20156.664)
 [Trid](https://www.sfu.ca/~ssurjano/trid.html) |![Trid_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-25%2C25%5D%5E5)| ![Trid_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%2030)
 [Zettl](http://www.geocities.ws/eadorio/mvf.pdf) |![Zettl_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-5%2C5%5D%5E2)| ![Zettl_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%200.00379)
