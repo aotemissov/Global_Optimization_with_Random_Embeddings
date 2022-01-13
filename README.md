@@ -16,7 +16,16 @@ having multiple local and global extrema, or they are black-box, so that their c
 
 As for generic global optimization algorithms (which are mostly effective for small dimensional problems), they can be broadly categorized into two groups: deterministic and stochastic. A method is called deterministic if it can provide theoretical guarantees that the value of a produced solution is larger than the value of the true global minimum by at most ![epsilon](https://latex.codecogs.com/svg.latex?%5Cepsilon) for a pre-specified ![epsilon](https://latex.codecogs.com/svg.latex?%5Cepsilon%20%3E%200) ([Liberti and Kucherenko, 2005](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1475-3995.2005.00503.x)). Stochastic methods, on the other hand, do not provide such guarantees and can only produce probabilistic bounds that the generated solution is indeed global. Some of the most popular global optimization methods include Branch & Bound, random search methods, Bayesian Optimization and multi-start methods.
 
-### Functions with low effective dimensionality
+### What is this research about?
+
+Our research lies at the boundary between optimization and machine learning.  Both fields attract much attention nowadays due to ubiquitous contributions to practical applications. When it comes to the contributions to one another, researchers commonly refer to optimization as a donor that offers huge supply of tools to guide machine learning algorithms; just think of Bayesian Optimization for hyper-parameter tuning ([Shahriari et al., 2016](https://www.cs.ox.ac.uk/people/nando.defreitas/publications/BayesOptLoop.pdf)) or Stochastic Gradient Descent for neural networks ([Montavon et al., 2012](https://link.springer.com/book/10.1007%2F978-3-642-35289-8)). Given the generosity of optimization, researchers began to ask: can machine learning be generous back? Can we use machine learning techniques to tackle optimization problems? These questions inspired the topic of my doctoral research which investigates the effectiveness of a particular machine learning technique called ‘dimensionality reduction’ applied to high-dimensional global optimization problems of a certain class of functions termed functions with low effective dimensionality, which vary only along a few linear directions and are constant along others. These functions appear in applications such as neural networks ([Bergstra & Bengio, 2012](https://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf)), combinatorial optimization problems ([Hutter et al., 2014](https://proceedings.mlr.press/v32/hutter14.html)), climate modelling ([Knight et al., 2007](https://www.pnas.org/content/104/30/12259)) and complex engineering and physical simulations ([Constantine, 2015](https://epubs.siam.org/doi/pdf/10.1137/1.9781611973860.fm)).
+	
+For these functions, we are tackling the following optimization problem
+
+where or (we address both cases) with large. 
+
+In general, it is an hard problem (for both cases) therefore the need to impose the structural assumption on f. We tackle (P) in two steps:
+
 
 ### A technique of Random Embeddings
 
