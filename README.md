@@ -42,9 +42,11 @@ When finding the global minimum of g(**y**) one needs to impose constraints on t
 	  <img width="600" src="https://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7D%20%5Cmin_%7B%5Cmathbf%7By%7D%7D%20%26%20%5C%3B%5C%3B%20f%28%5Cmathbf%7BAy%7D%29%20%5C%5C%20%5Ctext%7Bsubject%20to%7D%20%26%20%5C%3B%5C%3B%20%5Cmathbf%7By%7D%20%5Cin%20Y%20%3D%20%5B-%5Cdelta%2C%5Cdelta%5D%5Ed%2C%20%5Cend%7Balign*%7D%20%5Chspace*%7B8cm%7D%20%5Ctext%7B%28RP%29%7D" alt="(P)">
 </p>
 if the domain X in (P) is given by R^D and solve
+
 <p align="right">
 	  <img width="600" src="https://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7D%20%5Cmin_%7B%5Cmathbf%7By%7D%7D%20%26%20%5C%3B%5C%3B%20f%28%5Cmathbf%7BAy%7D%29%20%5C%5C%20%5Ctext%7Bsubject%20to%7D%20%26%20%5C%3B%5C%3B%20%5Cmathbf%7BAy%7D%20%5Cin%20%5B-1%2C1%5D%5ED%20%5Cend%7Balign*%7D%20%5Chspace*%7B8cm%7D%20%5Ctext%7B%28RPX%29%7D" alt="(P)">
 </p>
+
 if the domain X in (P) is given by the hyper-box [-1,1]^D. 
 
 **REGO**. Due to randomness of **A**, g(**y**) is a random function and so are its global solutions. As mentioned above, the reduction in the unconstrained case is almost surely successful for d ≥ de, but the constraints **y** ∈ Y = [−δ,δ]^d bring about additional impediments to the success of the reduced problem. As the solutions of g(**y**) are random, they are included in Y in probability. Therefore, REGO’s theoretical analysis focuses on determining the nature of the relationship of the parameters of the problem and the probability of successful reduction.
@@ -64,26 +66,40 @@ We perform two experiments. In the first experiment we compare REGO against _no-
 ### REGO 
 
 Below is the outline of REGO (Random Embeddings for Global Optimization) algorithm applied to (P):
-```
-1: Initialise d and δ and define Y = [−δ, δ]^d
-2: Generate a D × d Gaussian matrix **A**
-3: Apply a global optimization solver (e.g. BARON, DIRECT, KNITRO) to (RP) until a termination criterion is satisfied, and define ymin to be the generated (approximate) solution of (RP).
-4: Reconstruct x_{min} = Ay_{min}
-```
+
+
+---------------------------------------------------------Algorithm 1---------------------------------------------------------
+
+1. _Initialise_ d _and_ δ _and define_ Y = [−δ, δ]^d
+2. _Generate a_ D × d _Gaussian matrix_ **A**
+3. _Apply a global optimization solver (e.g. BARON, DIRECT, KNITRO) to_ (RP) _until a termination criterion is satisfied, and define ymin to be the generated (approximate) solution of_ (RP).
+4. _Reconstruct_ x_{min} = Ay_{min}
+
+------------------------------------------------------end of Algorithm 1-----------------------------------------------------
 
 ### X-REGO
 
 Below is the outline of X-REGO (X-Random Embeddings for Global Optimization) algorithm applied to (P):
 
-<hr />
+---------------------------------------------------------Algorithm 2---------------------------------------------------------
 
-```
-1: Initialise d and **p**^0∈ X
-2: for k ≥ 1 until termination do
-3: 	Draw a Dxd random Gaussian matrix A^k
-4: 	Calculate  y^k by solving approximately and possibly, probabilistically,
-5:	
-```
+1. _Initialise_ d _and_ **p**^0 ∈ X
+2. _for_ k ≥ 1 _until termination do_
+3. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Draw a_ D x d _random Gaussian matrix_ **A**^k
+4. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Calculate_  **y**^k _by solving approximately and possibly, probabilistically,_
+<p align="right">
+	  <img width="600" src="https://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7D%20%5Cmin_%7B%5Cmathbf%7By%7D%7D%20%26%20%5C%3B%5C%3B%20f%28%5Cmathbf%7BA%7D%5Ek%5Cmathbf%7By%7D&plus;%5Cmathbf%7Bp%7D%5E%7Bk-1%7D%29%20%5C%5C%20%5Ctext%7Bsubject%20to%7D%20%26%20%5C%3B%5C%3B%20%5Cmathbf%7BA%7D%5Ek%5Cmathbf%7By%7D&plus;%5Cmathbf%7Bp%7D%5E%7Bk-1%7D%20%5Cin%20X%20%5Cend%7Balign*%7D%20%5Chspace*%7B8cm%7D%20%5Ctext%7B%28RPX%24%5Ek%24%29%7D" alt="(P)">
+</p>
+
+5. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Let_
+<p align="center">
+	  <img width="150" src="https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%5Ek%20%3A%3D%20%5Cmathbf%7BA%7D%5Ek%20%5Cmathbf%7By%7D%5Ek&plus;%5Cmathbf%7Bp%7D%5E%7Bk-1%7D" alt="(P)">
+</p>
+	
+6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Choose (deterministically or randomly)_ **p**^k ∈ X
+7. _end for_		
+
+------------------------------------------------------end of Algorithm 2-----------------------------------------------------
 
 We test different variants of X-REGO algorithm against no-embedding. Each variant of X-REGO corresponds to a specific choice of **p**^k, k ≥ 0:
 
