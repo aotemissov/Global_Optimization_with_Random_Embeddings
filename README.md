@@ -108,9 +108,23 @@ We test different variants of X-REGO algorithm against no-embedding. Each varian
 - Nonadaptive X-REGO (N-REGO). In X-REGO, all the random subspaces are drawn at the origin: **p**^k := 0 for all k.
 - Local Nonadaptive X-REGO (LN-REGO). In X-REGO, the low-dimensional problem **reference to subproblem** is solved using a local solver, and the point **p**^k is chosen uniformly at random in X for all k.
 
-### Synthetically constructed test functions
+### 3.2 Test set
 
-### Low-dimensional test set
+Our test set of functions with low effective dimensionality is derived from 19 global optimization problems (of dimensions 2–6) with known global minima ([Gavana, n.d.](http://infinity77.net/global_optimization/); [Ernesto & Diliman, 2005](http://www.geocities.ws/eadorio/mvf.pdf); [Surjanovic & Bingham, 2013](https://www.sfu.ca/~ssurjano/optimization.html)), some of which are from the Dixon-Szego set ([Dixon & Szego, 1975](https://catalogue.nla.gov.au/Record/1832800)). The list of the problems is given in Table 1 below.
+
+Below we describe the method adopted from [Wang et al. (2016)](https://arxiv.org/abs/1301.1942) to generate high-dimensional functions with low effective dimensionality. Let h(**x**) be any function in Table 1; let d_e be its dimension and let the given domain be scaled to ![interval](https://latex.codecogs.com/svg.latex?%5B-1%2C1%5D%5E%7Bd_e%7D). We create a D-dimensional function g(**x**) by adding D−d_e fake dimensions to h(**x**), 
+<p align="center">
+	  <img width="400" src="https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%7D%29%20%3D%20h%28%5Cmathbf%7Bx%7D%29%20&plus;%200%5Ccdot%20x_%7Bd_e&plus;1%7D%20&plus;%200%5Ccdot%20x_%7Bd_e&plus;2%7D&plus;%5Ccdots&plus;0%5Ccdot%20x_D" alt="(P)">
+</p>
+
+We further rotate the function by applying a random orthogonal matrix **Q** to **x** to obtain a non-trivial constant subspace. The final form of the function we test is given as
+<p align="center">
+	  <img width="115" src="https://latex.codecogs.com/svg.latex?f%28%5Cmathbf%7Bx%7D%29%20%3D%20g%28%5Cmathbf%7BQx%7D%29." alt="(P)">
+</p>
+
+For each problem in the test set, we generate three functions f as defined above, one for each D = 10, 100, 1000.
+
+### Table 1
 
 Function | Domain | Global minimum 
 --- | :-: | :-: | 
@@ -133,6 +147,10 @@ Function | Domain | Global minimum
 [Styblinski-Tang](https://www.sfu.ca/~ssurjano/stybtang.html) |![Styblinski_Tang_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-5%2C5%5D%5E4)| ![Styblinski_Tang_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%20156.664)
 [Trid](https://www.sfu.ca/~ssurjano/trid.html) |![Trid_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-25%2C25%5D%5E5)| ![Trid_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%2030)
 [Zettl](http://www.geocities.ws/eadorio/mvf.pdf) |![Zettl_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-5%2C5%5D%5E2)| ![Zettl_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%200.00379)
+
+### Solvers 
+
+
 
 ### References
 
