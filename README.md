@@ -2,7 +2,25 @@
 
 ### 1 Introduction
 
+This page contains the descriptions and numerical testing of the REGO (Random Embeddings for Global Optimization) and X-REGO algorithms proposed and analysed in these two papers ([Cartis & Otemissov (2020)](https://arxiv.org/abs/2003.09673) and [Cartis et al. (2020)](https://arxiv.org/abs/2009.10446)). 
+
+This research uses the ideas of dimensionality reduction prominent in the machine learning community and adapts it for global optimization. Our approach is based on the techniques presented in [Wang et al., 2016](https://arxiv.org/abs/1301.1942) for Bayesian Optimization. 
+
+#### Acknowledgements
+
+This project was funded and supported by the Alan Turing Insitute under The Engineering and Physical Sciences Research Council (EPSRC) grant EP/N510129/1 and the Turing Project Scheme (PI: [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cartis)) and by the National Physical Laboratory.
+
 ### 1.1 Outline
+
+- Section 1.2 contains the backgorund of global optimization (and its challenges) with references to important works in the field. 
+- Section 1.3 gives the overview of our research and provides a brief literature review. 
+- Section 2 introduces two dimensionality reduction frameworks (REGO and X-REGO)
+- Section 3 decribes the numerical experiments we conducted to test the effectiveness of REGO and X-REGO.
+	- Section 3.1 formally outlines the REGO and X-REGO algorithms and proposes different variants of X-REGO.
+	- Section 3.2 provides the test set of functions used in the experiments.
+	- Section 3.3 describes the global otimization solvers we used in combination with the two frameworks. 
+	- Section 3.4 briefly describes the [Dolan and More](https://link.springer.com/article/10.1007/s101070100263)'s performance profile for comparing different algorithms.
+	- Section 3.5 describes how our uploaded code is organized. 
 
 ### 1.2 Global Optimization background
 Global optimization is a task of determining the most extreme value of a function over a predefined domain. Global optimization has a broad range of applications; examples include portfolio man- agement, protein structure prediction, engineering design, object packing, curve fitting, climate modelling and many more. Unlike local optimization, where one is satisfied with minimizers over a neighbourhood, 
@@ -148,13 +166,33 @@ Function | Domain | Global minimum
 [Trid](https://www.sfu.ca/~ssurjano/trid.html) |![Trid_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-25%2C25%5D%5E5)| ![Trid_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%2030)
 [Zettl](http://www.geocities.ws/eadorio/mvf.pdf) |![Zettl_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-5%2C5%5D%5E2)| ![Zettl_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%200.00379)
 
-### Solvers 
+### 3.3 Solvers 
+
+Below, we give the descriptions of the three state-of-the-art solvers we use to test REGO and X-REGO variants.
+
+DIRECT ([Gablonsky & Kelley, 2001](https://link.springer.com/article/10.1023/A:1017930332101); [Jones et al., 1993](https://link.springer.com/article/10.1007/BF00941892); [Finkel, 2003](http://www2.peq.coppe.ufrj.br/Pessoal/Professores/Arge/COQ897/Naturais/DirectUserGuide.pdf)) version 4.0 (DIviding RECTangles) is a deterministic global optimization solver first introduced in [Jones et al. (1993)](https://link.springer.com/article/10.1007/BF00941892) as an extension of Lipschitzian optimization. DIRECT does not require information about the gradient nor about the Lipschitz constant and, hence, can be used for black-box functions. DIRECT divides the search domain into rectangles and evaluates the function at the centre of each rectangle. Based on the previously sampled points, DIRECT carefully decides what rectangle to divide next balancing between local and global searches. [Jones et al. (1993)](https://link.springer.com/article/10.1007/BF00941892) showed that DIRECT is guaranteed to converge to global minimum, but convergence may sometimes be slow.
+
+BARON ([Sahinidis, 2014](https://minlp.com/downloads/docs/baron%20manual.pdf); [Tawarmalani & Sahinidis, 2005](https://link.springer.com/article/10.1007/s10107-005-0581-8)) version 17.10.10 (Branch- And-Reduce Optimization Navigator) is a branch- and-bound type global optimization solver for non-linear and mixed-integer non-linear programs. To provide lower and upper bounds for each branch, BARON utilizes algebraic structure of the objective function. It also includes a preprocessing step where it performs a multi-start local search to obtain a tight global upper bound. In comparison to other existing global solvers, BARON was demonstrated to be the most robust and fastest (see [Neumaier et al. (2005)](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.64.2670&rep=rep1&type=pdf)). However, BARON accepts only a few (general) classes of functions including polynomial, exponential, logarithmic, etc. and, unlike DIRECT, it is unable to optimize black-box functions.
+
+KNITRO ([Byrd et al., 2006](https://link.springer.com/chapter/10.1007/0-387-30065-1_4)) version 10.3.0 is a large-scale non-linear local optimization solver capable of handling problems with hundreds of thousands of variables. KNITRO allows to solve problems using one of the four algorithms: two interior point type methods (direct and conjugate gradient) and two active set type methods (active set and sequential quadratic programming). In contrast to BARON and DIRECT, which specialize on finding global minima, KNITRO focuses on finding local solutions. Nonetheless, KNITRO has multi-start capabilities, i.e., it solves a problem locally multiple times every time starting from a different point in the feasible domain. It is this feature that we make use of in the experiments.
+
+### 3.4 Performance profile
+
+We compare the results (for X-REGO experiment) using performance profiles ([Dolan & More (2002)](https://link.springer.com/article/10.1007/s101070100263)), which measure the proportion of problems solved by the algorithm in less than a given budget defined based on the best performance among the algorithms considered. More precisely, for each solver (BARON, DIRECT and KNITRO), and for each algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) (the above-mentioned variants of X-REGO and ‘no-embedding’), we record ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BN%7D_p%28%5Cmathcal%7BA%7D%29), the computational cost of running algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) to solve problem p within accuracy ![](https://latex.codecogs.com/svg.latex?%5Cepsilon). Let ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BN%7D_p%5E*) be the minimum computational cost required for problem p by any algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D). The performance (probability) of algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) on the problem set ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BP%7D) is defined as
+
+<p align="center">
+	  <img width="280" src="https://latex.codecogs.com/svg.latex?%5Cpi_%7B%5Cmathcal%7BA%7D%7D%28%5Calpha%29%20%3D%20%5Cfrac%7B%7C%5C%7B%20p%5Cin%20%5Cmathcal%7BP%7D%3A%5Cmathcal%7BN%7D_p%28%5Cmathcal%7BA%7D%29%20%5Cleq%20%5Calpha%20%5Cmathcal%7BN%7D_p%5E*%20%5C%7D%7C%7D%7B%7C%5Cmathcal%7BP%7D%7C%7D%2C" alt="(P)">
+</p>
+
+with performance ratio ![](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cgeq%201). As each experiment involving random embeddings is repeated five times, we obtain five curves for the corresponding algorithm-solver pairs.
+
+### MATLAB functions' guide
 
 
 
 ### References
 
-Further resources if you want to know learn more about this project: 
+This work is based on the following articles and a thesis: 
 
 * C. Cartis and A. Otemissov. [A dimensionality reduction technique for unconstrained global optimization of functions with low effective dimensionality](https://academic.oup.com/imaiai/advance-article-abstract/doi/10.1093/imaiai/iaab011/6278168), *Information and Inference: A Journal of the IMA*, 2021
 
@@ -163,6 +201,3 @@ arXiv e-prints, art. arXiv:2009.10446, 2020
 
 * A. Otemissov. [Dimensionality reduction techniques for global optimization](https://ora.ox.ac.uk/objects/uuid:aa441eb8-c2ad-4da3-abfc-291bb0fdeb1f). PhD thesis, University of Oxford, 2020
 
-### Acknowledgements
-
-This project was funded and supported by the Alan Turing Insitute under The Engineering and Physical Sciences Research Council (EPSRC) grant EP/N510129/1 and the Turing Project Scheme.
