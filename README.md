@@ -122,9 +122,9 @@ Below is the outline of X-REGO (X-Random Embeddings for Global Optimization) alg
 We test different variants of X-REGO algorithm against no-embedding. Each variant of X-REGO corresponds to a specific choice of **p**^k, k ≥ 0:
 
 - Adaptive X-REGO (A-REGO). In X-REGO, the point **p**^k is chosen as the best point found up to the k-th embedding: if f(**A**^k**y**^k + **p**^{k−1}) < f(**p**^{k−1}) then **p**^k := **A**^k**y**^k + **p**^{k−1}, otherwise, **p**^k := **p**^{k−1}.
-- Local Adaptive X-REGO (LA-REGO). In X-REGO, we solve reference to subproblem using a local solver (instead of a global one as in N-REGO). Then, if |f(**A**^k**y**^k + **p**^{k−1}) − f(**p**^{k−1})| > γ for some small γ (here, γ = 10^{−5}), we let **p**^k := **A**^k**y**^k + **p**^{k−1}, otherwise, **p**^k is chosen uniformly at random in X.
+- Local Adaptive X-REGO (LA-REGO). In X-REGO, we solve (RPX^k) using a local solver (instead of a global one as in N-REGO). Then, if |f(**A**^k**y**^k + **p**^{k−1}) − f(**p**^{k−1})| > γ for some small γ (here, γ = 10^{−5}), we let **p**^k := **A**^k**y**^k + **p**^{k−1}, otherwise, **p**^k is chosen uniformly at random in X.
 - Nonadaptive X-REGO (N-REGO). In X-REGO, all the random subspaces are drawn at the origin: **p**^k := 0 for all k.
-- Local Nonadaptive X-REGO (LN-REGO). In X-REGO, the low-dimensional problem **reference to subproblem** is solved using a local solver, and the point **p**^k is chosen uniformly at random in X for all k.
+- Local Nonadaptive X-REGO (LN-REGO). In X-REGO, the low-dimensional problem (RPX^k) is solved using a local solver, and the point **p**^k is chosen uniformly at random in X for all k.
 
 ### 3.2 Test set
 
