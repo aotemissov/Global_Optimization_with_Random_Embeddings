@@ -8,7 +8,7 @@ This research uses the ideas of dimensionality reduction prominent in the machin
 
 #### Acknowledgements
 
-This project was funded and supported by the Alan Turing Insitute under The Engineering and Physical Sciences Research Council (EPSRC) grant EP/N510129/1 and the Turing Project Scheme (PI: [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cartis)) and by the National Physical Laboratory.
+This project was funded and supported by the _Alan Turing Insitute_ under _The Engineering and Physical Sciences Research Council (EPSRC)_ grant EP/N510129/1, the _Turing Project Scheme_ (PI: [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cartis)) and by the _National Physical Laboratory_.
 
 ### 1.1 Outline
 
@@ -186,11 +186,11 @@ We compare the results (for X-REGO experiment) using performance profiles ([Dola
 
 with performance ratio ![](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cgeq%201). As each experiment involving random embeddings is repeated five times, we obtain five curves for the corresponding algorithm-solver pairs.
 
-### MATLAB functions' guide
+### 3.5 MATLAB functions' guide
 
 
 
-### References
+### Main references
 
 This work is based on the following articles and a thesis: 
 
