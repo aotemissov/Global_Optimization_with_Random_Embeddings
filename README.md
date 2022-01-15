@@ -78,6 +78,8 @@ Using the success probability of the reduced subproblems, we prove that X-REGO c
 ### 3 Experiments
 
 We perform two experiments. In the first experiment we compare REGO against _no-embedding_ framework in which (P) is solved directly without using random embeddings and with no explicit exploitation of its special structure. In the second experiment, we compare X-REGO against no-embedding.
+- Refer to [Coralia & Otemissov (2021)](https://academic.oup.com/imaiai/advance-article-abstract/doi/10.1093/imaiai/iaab011/6278168) for the details of the experimental setup of REGO vs no embedding.
+- Refer to [Coralia et al. (2020)](https://arxiv.org/abs/2009.10446) for the details of the experimental setup of X-REGO vs no embedding.
 
 ### 3.1 Algorithms
 
