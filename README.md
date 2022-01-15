@@ -86,20 +86,20 @@ We perform two experiments. In the first experiment we compare REGO against _no-
 Below is the outline of REGO (Random Embeddings for Global Optimization) algorithm applied to (P):
 
 
----------------------------------------------------------Algorithm 1---------------------------------------------------------
+---------------------------------------------------Algorithm 1----------------------------------------------------
 
 1. _Initialise_ d _and_ δ _and define_ Y = [−δ, δ]^d
 2. _Generate a_ D × d _Gaussian matrix_ **A**
 3. _Apply a global optimization solver (e.g. BARON, DIRECT, KNITRO) to_ (RP) _until a termination criterion is satisfied, and define ymin to be the generated (approximate) solution of_ (RP).
 4. _Reconstruct_ x_{min} = Ay_{min}
 
-------------------------------------------------------end of Algorithm 1-----------------------------------------------------
+------------------------------------------------end of Algorithm 1------------------------------------------------
 
 ### X-REGO
 
 Below is the outline of X-REGO (X-Random Embeddings for Global Optimization) algorithm applied to (P):
 
----------------------------------------------------------Algorithm 2---------------------------------------------------------
+---------------------------------------------------Algorithm 2----------------------------------------------------
 
 1. _Initialise_ d _and_ **p**^0 ∈ X
 2. _for_ k ≥ 1 _until termination do_
@@ -117,7 +117,7 @@ Below is the outline of X-REGO (X-Random Embeddings for Global Optimization) alg
 6. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _Choose (deterministically or randomly)_ **p**^k ∈ X
 7. _end for_		
 
-------------------------------------------------------end of Algorithm 2-----------------------------------------------------
+------------------------------------------------end of Algorithm 2------------------------------------------------
 
 We test different variants of X-REGO algorithm against no-embedding. Each variant of X-REGO corresponds to a specific choice of **p**^k, k ≥ 0:
 
