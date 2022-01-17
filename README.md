@@ -180,6 +180,8 @@ BARON ([Sahinidis, 2014](https://minlp.com/downloads/docs/baron%20manual.pdf); [
 
 KNITRO ([Byrd et al., 2006](https://link.springer.com/chapter/10.1007/0-387-30065-1_4)) version 10.3.0 is a large-scale non-linear local optimization solver capable of handling problems with hundreds of thousands of variables. KNITRO allows to solve problems using one of the four algorithms: two interior point type methods (direct and conjugate gradient) and two active set type methods (active set and sequential quadratic programming). In contrast to BARON and DIRECT, which specialize on finding global minima, KNITRO focuses on finding local solutions. Nonetheless, KNITRO has multi-start capabilities, i.e., it solves a problem locally multiple times every time starting from a different point in the feasible domain. It is this feature that we make use of in the experiments.
 
+**Remark**. The experiments are done not to compare solvers but to contrast ‘no-embedding’ with REGO and X-REGO variants. All the experiments were run in MATLAB on the 16 cores (2×8 Intel with hyper-threading) Linux machines with 256GB RAM and 3300 MHz speed.
+
 ### 3.4 Performance profile
 
 We compare the results (for X-REGO experiment) using performance profiles ([Dolan & More (2002)](https://link.springer.com/article/10.1007/s101070100263)), which measure the proportion of problems solved by the algorithm in less than a given budget defined based on the best performance among the algorithms considered. More precisely, for each solver (BARON, DIRECT and KNITRO), and for each algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) (the above-mentioned variants of X-REGO and ‘no-embedding’), we record ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BN%7D_p%28%5Cmathcal%7BA%7D%29), the computational cost of running algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) to solve problem p within accuracy ![](https://latex.codecogs.com/svg.latex?%5Cepsilon). Let ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BN%7D_p%5E*) be the minimum computational cost required for problem p by any algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D). The performance (probability) of algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) on the problem set ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BP%7D) is defined as
@@ -192,7 +194,19 @@ with performance ratio ![](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cge
 
 ### 3.5 MATLAB functions' guide
 
+Here, we provide a brief description of the roles of uploaded files. 
 
+- _main.m_ - the main MATLAB file which initiates the REGO and X-REGO experiments
+- _solvers_REGO.m_ - 
+- _solveers_XREGO.m_ - 
+- _solvers_no_emb_vs_REGO.m_
+- _solvers_no_emb_vs_XREGO.m_
+- _Matrices_Q.mat_ - contains the entries of orthogonal **Q** matrices created for each function in the test set (refer to Section 3.2 above)
+- _list_of_functions_ - a text file that contains a list of functions that the user would like to solve
+- _Complementary_functions/DIRECT_with_linear_constraints.m_ - 
+- _Complementary_functions/Test_set.m_ - contains the list of high-dimensional functions (created as described in Section 3.2) that we are testing. 
+- _Complementary_functions/Extract_function.m_ - this function is essentially Table 1, it helps to extract information about the initial low-dimensional function  (from which the repsective high-dimensional functions were created).
+-  
 
 ### Main references
 
