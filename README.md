@@ -204,13 +204,16 @@ Here, we provide a brief description of the roles of uploaded files.
 - _Matrices_Q.mat_ - contains the entries of orthogonal **Q** matrices created for each function in the test set (refer to Section 3.2 above)
 - _list_of_functions_ - a text file that contains a list of functions that the user would like to solve
 
-- _Complementary_functions/DIRECT_with_linear_constraints.m_ - 
+- _Complementary_functions/DIRECT_with_linear_constraints.m_ - a special function created for X-REGO experiments with DIRECT solver to deal with linear constraints 
 - _Complementary_functions/Test_set.m_ - contains the list of high-dimensional functions (created as described in Section 3.2) that we are testing. 
 - _Complementary_functions/Extract_function.m_ - this function is essentially Table 1, it helps to extract information about the initial low-dimensional function  (from which the repsective high-dimensional functions were created).
 - _Complementary_functions/tight_subplot.m_ - this function allows to draw multiple subplots in a plot. This function was created by Pekka Kumpulainen (2022). tight_subplot(Nh, Nw, gap, marg_h, marg_w) (https://www.mathworks.com/matlabcentral/fileexchange/27991-tight_subplot-nh-nw-gap-marg_h-marg_w), MATLAB Central File Exchange. Retrieved January 17, 2022.
 
 - _plots_generator/Plots_generator\_"name of framework"\_"name of solver".m_ - this function draws the figures which visualize the data for the "name of framework" vs no embedding experiment for "name of solver" solver. 
 - In addition, in plots_generator directory there are numerous Results mat files which contain the data for our experiments. 
+
+**Remark**. For the above code to run successfully, you need to include the codes (files) of the respective solvers in the MATLAB path. BARON and KNITRO are commercial solvers. Check out their websites: [BARON](https://minlp.com/baron-solver), [KNITRO](https://www.artelys.com/solvers/knitro/). Visit [this website](https://ctk.math.ncsu.edu/Finkel_Direct/) to get the DIRECT solver which should be free of charge. However, note that to generate the plots based on our data, you don't need the solvers. 
+
 ### Main references
 
 This work is based on the following articles and a thesis: 
