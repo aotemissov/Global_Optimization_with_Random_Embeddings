@@ -56,16 +56,18 @@ The technique of random embeddings was initially proposed in ([Wang et al., 2016
 ### 2 Two frameworks we would like to test
 
 When finding the global minimum of g(**y**) one needs to impose constraints on the problem to avoid search over infinite domain. We propose two different constraints — each for two different domains (i.e., X ∈ R^D and X ∈ [−1, 1]^D ) — resulting in two different frameworks. The first framework named REGO (Random Embeddings for Global Optimization) defines bound constraints in the new variables, i.e., **y** ∈ Y = [−δ, δ]^d for some user-defined δ. The second one named X-REGO imposes the linear constraints **Ay** ∈ X . So, instead of solving high-dimensional (P), we solve
+
 <p align="right">
 	  <img width="600" src="https://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7D%20%5Cmin_%7B%5Cmathbf%7By%7D%7D%20%26%20%5C%3B%5C%3B%20f%28%5Cmathbf%7BAy%7D%29%20%5C%5C%20%5Ctext%7Bsubject%20to%7D%20%26%20%5C%3B%5C%3B%20%5Cmathbf%7By%7D%20%5Cin%20Y%20%3D%20%5B-%5Cdelta%2C%5Cdelta%5D%5Ed%2C%20%5Cend%7Balign*%7D%20%5Chspace*%7B8cm%7D%20%5Ctext%7B%28RP%29%7D" alt="(P)">
 </p>
+
 if the domain X in (P) is given by R^D and solve
 
 <p align="right">
-	  <img width="600" src="https://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7D%20%5Cmin_%7B%5Cmathbf%7By%7D%7D%20%26%20%5C%3B%5C%3B%20f%28%5Cmathbf%7BAy%7D%29%20%5C%5C%20%5Ctext%7Bsubject%20to%7D%20%26%20%5C%3B%5C%3B%20%5Cmathbf%7BAy%7D%20%5Cin%20%5B-1%2C1%5D%5ED%20%5Cend%7Balign*%7D%20%5Chspace*%7B8cm%7D%20%5Ctext%7B%28RPX%29%7D" alt="(P)">
+	  <img width="600" src="https://latex.codecogs.com/svg.latex?%5Cbegin%7Balign*%7D%20%5Cmin_%7B%5Cmathbf%7By%7D%7D%20%26%20%5C%3B%5C%3B%20f%28%5Cmathbf%7BAy%7D&plus;%5Cmathbf%7Bp%7D%29%20%5C%5C%20%5Ctext%7Bsubject%20to%7D%20%26%20%5C%3B%5C%3B%20%5Cmathbf%7BAy%7D&plus;%5Cmathbf%7Bp%7D%20%5Cin%20X%20%3D%20%5B-1%2C1%5D%5ED%20%5Cend%7Balign*%7D%20%5Chspace%7B7cm%7D%20%28%5Ctext%7BRPX%7D%29" alt="(P)">
 </p>
 
-if the domain X in (P) is given by the hyper-box [-1,1]^D. 
+if the domain X in (P) is given by the hyper-box [-1,1]^D. Here, **p** is a point in X at which we draw a random subspace; it provides additional flexibility that we exploit algorithmically.
 
 **REGO**. Due to randomness of **A**, g(**y**) is a random function and so are its global solutions. As mentioned above, the reduction in the unconstrained case is almost surely successful for d ≥ de, but the constraints **y** ∈ Y = [−δ,δ]^d bring about additional impediments to the success of the reduced problem. As the solutions of g(**y**) are random, they are included in Y in probability. Therefore, REGO’s theoretical analysis focuses on determining the nature of the relationship of the parameters of the problem and the probability of successful reduction.
 
