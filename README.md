@@ -79,8 +79,9 @@ Moreover, we have
 	  <img width="190" src="https://latex.codecogs.com/svg.latex?f%5E*%20%3D%20f%28%5Cmathbf%7Bx%7D_%7B%5Ctop%7D%5E*%29%20%3D%20f%28%5Cmathbf%7Bx%7D_%7B%5Ctop%7D%5E*&plus;%5Cmathbf%7Bx%7D_%7B%5Cperp%7D%29" alt="(P)">
 </p>
 
-for every vector **x**⊥ in T⊥. This feature of functions with low effective dimensionality implies that the set of global minimizers of f in X, which we call G, contains infinitely many points. In particular, if X = R^D then the set of global minimizers G is an affine subspace of dimension D-d_e. If X is a hyper-box then G is a polytope (see an illustration futher down below). 
+for every vector **x**⊥ in T⊥. This feature of functions with low effective dimensionality implies that the set of global minimizers of f in X, which we call G*, contains infinitely many points. In particular, if X = R^D then the set of global minimizers G* is an affine subspace[^1] of dimension D-d_e. If X is a hyper-box then G* is a polytope (see an illustration futher down below). 
 
+[^1]: In fact, G* is a union of affine subspaces. 
 
 ### 2 Two frameworks we would like to test
 
@@ -101,16 +102,19 @@ if the domain X in (P) is given by the hyper-box [-1,1]^D. Here, **p** is a poin
 #### 2.1 REGO
 Due to randomness of **A**, f(**Ay**) is a random function and so are its global solutions. As mentioned above, the reduction in the unconstrained case is almost surely successful for d ≥ de, but the constraints **y** ∈ Y = [−δ,δ]^d bring about additional impediments to the success of the reduced problem. As the solutions of f(**Ay**) are random, they are included in Y in probability. Therefore, REGO’s theoretical analysis focuses on determining the nature of the relationship of the parameters of the problem and the probability of successful reduction. Using tools of Random Matrix Theory, we found that the Euclidean norm of the random global minimizer of f(**Ay**) follows a(n appropriately scaled) chi-squared distribution with d − d_e + 1 degrees of freedom and, most importantly, that it is independent of large D under certain assumptions. This implies that REGO does not inherit the high computational demands of (P) and this was confirmed by our numerical experiments.
 
+Let us now briefly describe and illustrate the geometry of REGO. In the below figure, we illustrate schematically T (the effective subspace of f), T⊥ (the orthogonal component of T), G* (the set of global minimizers), **x**\*⊤ (the orthogonal projection of the global minimizers on G* onto T). By applying the ‘random embedding’ (RP), we switch from optimizing over R^D to optimizing over Y. The linear mapping **y** → **Ay** maps points of the hypercube Y to points along the subspace range(**A**) in R^D, which means that searching over Y is equivalent to searching over the corresponding feasible set along range(**A**) in R^D. An example of this mapping is illustrated in the below figure with two red line segments: the segment (from −δ**1** to δ**1**) representing Y is being mapped to the right segment, which lies in range(**A**). It is important to note that the centre of Y maps to the origin in R^D and, hence, the corresponding search in the original space is also centred at the origin.
 <p align="center">
-	  <img width="500" src="https://user-images.githubusercontent.com/44117093/149951125-3b1ecb46-52bf-4e90-a178-96d88d6a2649.png" alt="REGO">
+	  <img width="450" src="https://user-images.githubusercontent.com/44117093/149951125-3b1ecb46-52bf-4e90-a178-96d88d6a2649.png" alt="REGO">
 </p>
-
-
 
 #### 2.2 X-REGO
 Unlike REGO, where we draw only one **A**, X-REGO uses multiple random embeddings, solving (RPX) repeatedly, approximately and possibly, adaptively. The reason for using many embeddings is the fact that with embeddings now restricted to be inside the box [−1, 1]^D the probability of successful reduction is decreased. Our theoretical analysis derives a lower bound on this probability in the case when d is equal or larger than d_e. We show that this success probability is positive and that it depends on both the effective subspace and the ambient dimension D. However, in the case when the effective subspace is aligned with the coordinate axes, we show that the dependence on D in this lower bound is at worst polynomial. Using the success probability of the reduced subproblems, we prove that X-REGO converges globally, with probability one, and linearly in the number of embeddings, to a neighbourhood of a constrained global minimizer. Our numerical experiments on special structure functions illustrate our theoretical findings and the improved scalability of X-REGO variants when coupled with state-of-the-art global — and even local — optimization solvers for the subproblems.
 
 
+
+<p align="center">
+	  <img width="370" src="https://user-images.githubusercontent.com/44117093/149952744-7bfcd1ae-40a5-4c6b-b133-5f0b2177bd75.png" alt="XREGO">
+</p>
 
 #### Extensions to general objective functions
 
@@ -261,6 +265,9 @@ This work is based on the following articles and a thesis:
 
 * C. Cartis, E. Massart, and A. Otemissov. [Constrained global optimization of functions with low effective dimensionality using multiple random embeddings](https://arxiv.org/abs/2009.10446). 
 arXiv e-prints, art. arXiv:2009.10446, 2020
+
+* C. Cartis, E. Massart, and A. Otemissov. [Global optimization using random embeddings](https://arxiv.org/abs/2107.12102). 
+arXiv e-prints, art. arXiv:2107.12102 , 2021
 
 * A. Otemissov. [Dimensionality reduction techniques for global optimization](https://ora.ox.ac.uk/objects/uuid:aa441eb8-c2ad-4da3-abfc-291bb0fdeb1f). PhD thesis, University of Oxford, 2020
 
