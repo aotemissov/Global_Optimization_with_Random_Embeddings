@@ -2,7 +2,7 @@
 
 ### 1 Introduction
 
-This page contains the descriptions and numerical testing of the REGO (Random Embeddings for Global Optimization) and X-REGO algorithms proposed and analysed in these two papers ([Cartis & Otemissov (2020)](https://arxiv.org/abs/2003.09673) and [Cartis et al. (2020)](https://arxiv.org/abs/2009.10446)). 
+This page contains the descriptions and numerical testing of the REGO (Random Embeddings for Global Optimization) and X-REGO algorithms proposed and analysed in these three papers ([Cartis & Otemissov (2020)](https://arxiv.org/abs/2003.09673), [Cartis et al. (2020)](https://arxiv.org/abs/2009.10446) and [Cartis et al. (2021)](https://arxiv.org/abs/2107.12102)). 
 
 This research uses the ideas of dimensionality reduction prominent in the machine learning community and adapts it for global optimization. Our approach is based on the techniques presented in [Wang et al., 2016](https://arxiv.org/abs/1301.1942) for Bayesian Optimization. 
 
@@ -10,7 +10,7 @@ This research uses the ideas of dimensionality reduction prominent in the machin
 
 This project was funded and supported by the _Alan Turing Insitute_ under _The Engineering and Physical Sciences Research Council (EPSRC)_ grant EP/N510129/1, the _Turing Project Scheme_ (PI: [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cartis)) and by the _National Physical Laboratory_.
 
-### 1.1 Outline
+#### 1.1 Outline
 
 - Section 1.2 contains the backgorund of global optimization (and its challenges) with references to important works in the field. 
 - Section 1.3 gives the overview of our research and provides a brief literature review. 
@@ -22,10 +22,10 @@ This project was funded and supported by the _Alan Turing Insitute_ under _The E
 	- Section 3.4 briefly describes the [Dolan and More](https://link.springer.com/article/10.1007/s101070100263)'s performance profile for comparing different algorithms.
 	- Section 3.5 describes how our uploaded code is organized. 
 
-### 1.2 Global Optimization background
-Global optimization is a task of determining the most extreme value of a function over a predefined domain. Global optimization has a broad range of applications; examples include portfolio man- agement, protein structure prediction, engineering design, object packing, curve fitting, climate modelling and many more. Unlike local optimization, where one is satisfied with minimizers over a neighbourhood, 
+#### 1.2 Global Optimization background
+Global optimization is a task of determining the most extreme value of a function over a predefined domain. Global optimization has a broad range of applications; examples include portfolio management, protein structure prediction, engineering design, object packing, curve fitting, climate modelling and many more. Unlike local optimization, where one is satisfied with minimizers over a neighbourhood, 
 global optimization requires exploration/consideration of the entire feasible domain. This task is commonly associated with large computational costs, 
-which often grow exponentially with the dimension of the problem rendering global optimization of high- dimensional functions an extremely challenging problem. 
+which often grow exponentially with the dimension of the problem rendering global optimization of high-dimensional functions an extremely challenging problem. 
 Along with attempts to devise a generic global optimization algorithm capable of handling high-dimensional problems, 
 researchers have also targeted specific classes of functions, which possess some type of structure often encountered in practice. 
 The main subclass of problems that are ‘easy’ are convex problems (both the objective function and domain are convex); 
@@ -34,7 +34,7 @@ having multiple local and global extrema, or they are black-box, so that their c
 
 As for generic global optimization algorithms (which are mostly effective for small dimensional problems), they can be broadly categorized into two groups: deterministic and stochastic. A method is called deterministic if it can provide theoretical guarantees that the value of a produced solution is larger than the value of the true global minimum by at most ![epsilon](https://latex.codecogs.com/svg.latex?%5Cepsilon) for a pre-specified ![epsilon](https://latex.codecogs.com/svg.latex?%5Cepsilon%20%3E%200) ([Liberti and Kucherenko, 2005](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1475-3995.2005.00503.x)). Stochastic methods, on the other hand, do not provide such guarantees and can only produce probabilistic bounds that the generated solution is indeed global. Some of the most popular global optimization methods include Branch & Bound, random search methods, Bayesian Optimization and multi-start methods.
 
-### 1.3 What is this research about?
+#### 1.3 What is this research about?
 
 Our research lies at the boundary between optimization and machine learning.  Both fields attract much attention nowadays due to ubiquitous contributions to practical applications. When it comes to the contributions to one another, researchers commonly refer to optimization as a donor that offers huge supply of tools to guide machine learning algorithms; just think of Bayesian Optimization for hyper-parameter tuning ([Shahriari et al., 2016](https://www.cs.ox.ac.uk/people/nando.defreitas/publications/BayesOptLoop.pdf)) or Stochastic Gradient Descent for neural networks ([Montavon et al., 2012](https://link.springer.com/book/10.1007%2F978-3-642-35289-8)). Given the generosity of optimization, researchers began to ask: can machine learning be generous back? Can we use machine learning techniques to tackle optimization problems? These questions inspired the topic of my doctoral research which investigates the effectiveness of a particular machine learning technique called ‘dimensionality reduction’ applied to high-dimensional global optimization problems of a certain class of functions termed functions with low effective dimensionality, which vary only along a few linear directions and are constant along others. These functions appear in applications such as neural networks ([Bergstra & Bengio, 2012](https://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf)), combinatorial optimization problems ([Hutter et al., 2014](https://proceedings.mlr.press/v32/hutter14.html)), climate modelling ([Knight et al., 2007](https://www.pnas.org/content/104/30/12259)) and complex engineering and physical simulations ([Constantine, 2015](https://epubs.siam.org/doi/pdf/10.1137/1.9781611973860.fm)).
 	
@@ -53,6 +53,17 @@ The global minimum of f(**x**) may be lost during the reduction process, in othe
 
 The technique of random embeddings was initially proposed in ([Wang et al., 2016](https://arxiv.org/abs/1301.1942)) for Bayesian Optimization, a particular class of global optimization methods. [Wang et al. (2016)](https://arxiv.org/abs/1301.1942) showed that the reduction with random embeddings is successful with probability 1 if d ≥ d_e, where d_e ≪ D is the dimension of the effective subspace of f (along which the function varies). Extending their approach, our work proposes and investigates two frameworks compatible with any global optimization method. The work improves and extends [Wang et al. (2016)](https://arxiv.org/abs/1301.1942)’s theoretical analysis and the analyses existent elsewhere in the literature and validates the theoretical findings by extensive numerical testing some of which we present here.
 
+#### 1.4 Functions with low effective dimensionality
+
+Functions with low effective dimensionality can be defined in at least two ways: [Fornasier et al. (2012)](https://arxiv.org/abs/1008.3043), [Wang et al. (2016)](https://arxiv.org/abs/1301.1942). Since our work is based on [Wang et al. (2016)](https://arxiv.org/abs/1301.1942), we decided to work with their definition given in terms of linear subspaces:  
+
+**Definition (functions with low effective dimensionality)** A function f : R^D → R has effective dimensionality d_e ≤ D if there exists a linear subspace T of dimension d_e such that for all vectors **x**⊤ in T and **x**⊥ in T⊥ (orthogonal complement of T) we have
+<p align="center">
+	  <img width="160" src="https://latex.codecogs.com/svg.latex?f%28%5Cmathbf%7Bx%7D_%7B%5Ctop%7D%20&plus;%20%5Cmathbf%7Bx%7D_%7B%5Cperp%7D%29%20%3D%20f%28%5Cmathbf%7Bx%7D_%7B%5Ctop%7D%29" alt="(P)">
+</p>
+and d_e is the smallest integer such that the above equation is satisfied. 
+
+
 ### 2 Two frameworks we would like to test
 
 When finding the global minimum of g(**y**) one needs to impose constraints on the problem to avoid search over infinite domain. We propose two different constraints — each for two different domains (i.e., X ∈ R^D and X ∈ [−1, 1]^D ) — resulting in two different frameworks. The first framework named REGO (Random Embeddings for Global Optimization) defines bound constraints in the new variables, i.e., **y** ∈ Y = [−δ, δ]^d for some user-defined δ. The second one named X-REGO imposes the linear constraints **Ay** ∈ X . So, instead of solving high-dimensional (P), we solve
@@ -69,13 +80,19 @@ if the domain X in (P) is given by R^D and solve
 
 if the domain X in (P) is given by the hyper-box [-1,1]^D. Here, **p** is a point in X at which we draw a random subspace; it provides additional flexibility that we exploit algorithmically.
 
-**REGO**. Due to randomness of **A**, g(**y**) is a random function and so are its global solutions. As mentioned above, the reduction in the unconstrained case is almost surely successful for d ≥ de, but the constraints **y** ∈ Y = [−δ,δ]^d bring about additional impediments to the success of the reduced problem. As the solutions of g(**y**) are random, they are included in Y in probability. Therefore, REGO’s theoretical analysis focuses on determining the nature of the relationship of the parameters of the problem and the probability of successful reduction.
+#### 2.1 REGO
+Due to randomness of **A**, g(**y**) is a random function and so are its global solutions. As mentioned above, the reduction in the unconstrained case is almost surely successful for d ≥ de, but the constraints **y** ∈ Y = [−δ,δ]^d bring about additional impediments to the success of the reduced problem. As the solutions of g(**y**) are random, they are included in Y in probability. Therefore, REGO’s theoretical analysis focuses on determining the nature of the relationship of the parameters of the problem and the probability of successful reduction.
 
 Using tools of Random Matrix Theory, we found that the Euclidean norm of the random global minimizer of g(**y**) follows a(n appropriately scaled) chi-squared distribution with d − d_e + 1 degrees of freedom and, most importantly, that it is independent of large D under certain assumptions. This implies that REGO does not inherit the high computational demands of (P) and this was confirmed by our numerical experiments.
 
-**X-REGO**. Unlike REGO, where we draw only one **A**, X-REGO uses multiple random embeddings, solving (RPX) repeatedly, approximately and possibly, adaptively. The reason for using many embeddings is the fact that with embeddings now restricted to be inside the box [−1, 1]^D the probability of successful reduction is decreased. Our theoretical analysis derives a lower bound on this probability in the case when d is equal or larger than de. We show that this success probability is positive and that it depends on both the effective subspace and the ambient dimension D. However, in the case when the effective subspace is aligned with the coordinate axes, we show that the dependence on D in this lower bound is at worst polynomial.
+#### 2.2 X-REGO
+Unlike REGO, where we draw only one **A**, X-REGO uses multiple random embeddings, solving (RPX) repeatedly, approximately and possibly, adaptively. The reason for using many embeddings is the fact that with embeddings now restricted to be inside the box [−1, 1]^D the probability of successful reduction is decreased. Our theoretical analysis derives a lower bound on this probability in the case when d is equal or larger than d_e. We show that this success probability is positive and that it depends on both the effective subspace and the ambient dimension D. However, in the case when the effective subspace is aligned with the coordinate axes, we show that the dependence on D in this lower bound is at worst polynomial.
 
 Using the success probability of the reduced subproblems, we prove that X-REGO converges globally, with probability one, and linearly in the number of embeddings, to a neighbourhood of a constrained global minimizer. Our numerical experiments on special structure functions illustrate our theoretical findings and the improved scalability of X-REGO variants when coupled with state-of-the-art global — and even local — optimization solvers for the subproblems.
+
+#### Extensions to general objective functions
+
+
 
 ### 3 Experiments
 
@@ -83,9 +100,9 @@ We perform two experiments. In the first experiment we compare REGO against _no-
 - Refer to [Coralia & Otemissov (2021)](https://academic.oup.com/imaiai/advance-article-abstract/doi/10.1093/imaiai/iaab011/6278168) for the details of the experimental setup of REGO vs no embedding.
 - Refer to [Coralia et al. (2020)](https://arxiv.org/abs/2009.10446) for the details of the experimental setup of X-REGO vs no embedding.
 
-### 3.1 Algorithms
+#### 3.1 Algorithms
 
-### REGO 
+#### REGO 
 
 Below is the outline of REGO (Random Embeddings for Global Optimization) algorithm applied to (P):
 
@@ -99,7 +116,7 @@ Below is the outline of REGO (Random Embeddings for Global Optimization) algorit
 
 ------------------------------------------------end of Algorithm 1------------------------------------------------
 
-### X-REGO
+#### X-REGO
 
 Below is the outline of X-REGO (X-Random Embeddings for Global Optimization) algorithm applied to (P):
 
@@ -130,7 +147,7 @@ We test different variants of X-REGO algorithm against no-embedding. Each varian
 - Nonadaptive X-REGO (N-REGO). In X-REGO, all the random subspaces are drawn at the origin: **p**^k := 0 for all k.
 - Local Nonadaptive X-REGO (LN-REGO). In X-REGO, the low-dimensional problem (RPX^k) is solved using a local solver, and the point **p**^k is chosen uniformly at random in X for all k.
 
-### 3.2 Test set
+#### 3.2 Test set
 
 Our test set of functions with low effective dimensionality is derived from 19 global optimization problems (of dimensions 2–6) with known global minima ([Gavana, n.d.](http://infinity77.net/global_optimization/); [Ernesto & Diliman, 2005](http://www.geocities.ws/eadorio/mvf.pdf); [Surjanovic & Bingham, 2013](https://www.sfu.ca/~ssurjano/optimization.html)), some of which are from the Dixon-Szego set ([Dixon & Szego, 1975](https://catalogue.nla.gov.au/Record/1832800)). The list of the problems is given in Table 1 below.
 
@@ -146,7 +163,7 @@ We further rotate the function by applying a random orthogonal matrix **Q** to *
 
 For each problem in the test set, we generate three functions f as defined above, one for each D = 10, 100, 1000.
 
-### Table 1
+#### Table 1
 
 Function | Domain | Global minimum 
 --- | :-: | :-: | 
@@ -170,7 +187,7 @@ Function | Domain | Global minimum
 [Trid](https://www.sfu.ca/~ssurjano/trid.html) |![Trid_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-25%2C25%5D%5E5)| ![Trid_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%2030)
 [Zettl](http://www.geocities.ws/eadorio/mvf.pdf) |![Zettl_x](https://latex.codecogs.com/svg.latex?%5Cmathbf%7Bx%7D%20%5Cin%20%5B-5%2C5%5D%5E2)| ![Zettl_g](https://latex.codecogs.com/svg.latex?g%28%5Cmathbf%7Bx%5E*%7D%29%20%3D%20-%200.00379)
 
-### 3.3 Solvers 
+#### 3.3 Solvers 
 
 Below, we give the descriptions of the three state-of-the-art solvers we use to test REGO and X-REGO variants.
 
@@ -182,7 +199,7 @@ KNITRO ([Byrd et al., 2006](https://link.springer.com/chapter/10.1007/0-387-3006
 
 **Remark**. The experiments are done not to compare solvers but to contrast ‘no-embedding’ with REGO and X-REGO variants. All the experiments were run in MATLAB on the 16 cores (2×8 Intel with hyper-threading) Linux machines with 256GB RAM and 3300 MHz speed.
 
-### 3.4 Performance profile
+#### 3.4 Performance profile
 
 We compare the results (for X-REGO experiment) using performance profiles ([Dolan & More (2002)](https://link.springer.com/article/10.1007/s101070100263)), which measure the proportion of problems solved by the algorithm in less than a given budget defined based on the best performance among the algorithms considered. More precisely, for each solver (BARON, DIRECT and KNITRO), and for each algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) (the above-mentioned variants of X-REGO and ‘no-embedding’), we record ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BN%7D_p%28%5Cmathcal%7BA%7D%29), the computational cost of running algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) to solve problem p within accuracy ![](https://latex.codecogs.com/svg.latex?%5Cepsilon). Let ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BN%7D_p%5E*) be the minimum computational cost required for problem p by any algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D). The performance (probability) of algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) on the problem set ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BP%7D) is defined as
 
@@ -192,7 +209,7 @@ We compare the results (for X-REGO experiment) using performance profiles ([Dola
 
 with performance ratio ![](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cgeq%201). As each experiment involving random embeddings is repeated five times, we obtain five curves for the corresponding algorithm-solver pairs.
 
-### 3.5 MATLAB functions' guide
+#### 3.5 MATLAB functions' guide
 
 Here, we provide a brief description of the roles of uploaded files. 
 
