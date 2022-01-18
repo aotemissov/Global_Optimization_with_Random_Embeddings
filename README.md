@@ -101,6 +101,8 @@ if the domain X in (P) is given by the hyper-box [-1,1]^D. Here, **p** is a poin
 #### 2.1 REGO
 Due to randomness of **A**, g(**y**) is a random function and so are its global solutions. As mentioned above, the reduction in the unconstrained case is almost surely successful for d ≥ de, but the constraints **y** ∈ Y = [−δ,δ]^d bring about additional impediments to the success of the reduced problem. As the solutions of g(**y**) are random, they are included in Y in probability. Therefore, REGO’s theoretical analysis focuses on determining the nature of the relationship of the parameters of the problem and the probability of successful reduction.
 
+![REGO](https://user-images.githubusercontent.com/44117093/149951125-3b1ecb46-52bf-4e90-a178-96d88d6a2649.png)
+
 Using tools of Random Matrix Theory, we found that the Euclidean norm of the random global minimizer of g(**y**) follows a(n appropriately scaled) chi-squared distribution with d − d_e + 1 degrees of freedom and, most importantly, that it is independent of large D under certain assumptions. This implies that REGO does not inherit the high computational demands of (P) and this was confirmed by our numerical experiments.
 
 #### 2.2 X-REGO
