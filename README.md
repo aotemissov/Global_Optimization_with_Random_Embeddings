@@ -55,13 +55,31 @@ The technique of random embeddings was initially proposed in ([Wang et al., 2016
 
 #### 1.4 Functions with low effective dimensionality
 
-Functions with low effective dimensionality can be defined in at least two ways: [Fornasier et al. (2012)](https://arxiv.org/abs/1008.3043), [Wang et al. (2016)](https://arxiv.org/abs/1301.1942). Since our work is based on [Wang et al. (2016)](https://arxiv.org/abs/1301.1942), we decided to work with their definition given in terms of linear subspaces:  
+Functions with low effective dimensionality can be defined in at least two ways as presented in [Fornasier et al. (2012)](https://arxiv.org/abs/1008.3043), [Wang et al. (2016)](https://arxiv.org/abs/1301.1942). Since our work is based on [Wang et al. (2016)](https://arxiv.org/abs/1301.1942), we decided to work with their definition given in terms of linear subspaces:  
 
-**Definition (functions with low effective dimensionality)** A function f : R^D → R has effective dimensionality d_e ≤ D if there exists a linear subspace T of dimension d_e such that for all vectors **x**⊤ in T and **x**⊥ in T⊥ (orthogonal complement of T) we have
+**Definition (functions with low effective dimensionality)** _A function f : R^D → R has effective dimensionality d_e ≤ D if there exists a linear subspace T of dimension d_e such that for all vectors **x**⊤ in T and **x**⊥ in T⊥ (orthogonal complement of T) we have_
+
 <p align="center">
 	  <img width="160" src="https://latex.codecogs.com/svg.latex?f%28%5Cmathbf%7Bx%7D_%7B%5Ctop%7D%20&plus;%20%5Cmathbf%7Bx%7D_%7B%5Cperp%7D%29%20%3D%20f%28%5Cmathbf%7Bx%7D_%7B%5Ctop%7D%29" alt="(P)">
 </p>
-and d_e is the smallest integer such that the above equation is satisfied. 
+
+_and d_e is the smallest integer such that the above equation is satisfied._ 
+
+The linear subspace T is called the effective subspace of f and its orthogonal complement T⊥, the constant subspace of f. It is convenient to think of T⊥ as a subspace of no variation of largest dimension (along which the value of f does not change) and T as its orthogonal complement.
+
+Every vector **x** can be decomposed as **x** = **x**⊤ + **x**⊥, where **x**⊤ and **x**⊥ are orthogonal projections of **x** onto T and T⊥, respectively. In particular, if **x**\* is a global minimizer and f* is the global minimumof f in X then **x**\* =**x**\*⊤+**x**\*⊥ and
+
+<p align="center">
+	  <img width="270" src="https://latex.codecogs.com/svg.latex?f%5E*%20%3D%20f%28%5Cmathbf%7Bx%7D%5E*%29%20%3D%20f%28%5Cmathbf%7Bx%7D_%7B%5Ctop%7D%5E*&plus;%5Cmathbf%7Bx%7D_%7B%5Cperp%7D%5E*%29%20%3D%20f%28%5Cmathbf%7Bx%7D_%7B%5Ctop%7D%5E*%29." alt="(P)">
+</p>
+
+Moreover, we have 
+
+<p align="center">
+	  <img width="190" src="https://latex.codecogs.com/svg.latex?f%5E*%20%3D%20f%28%5Cmathbf%7Bx%7D_%7B%5Ctop%7D%5E*%29%20%3D%20f%28%5Cmathbf%7Bx%7D_%7B%5Ctop%7D%5E*&plus;%5Cmathbf%7Bx%7D_%7B%5Cperp%7D%29" alt="(P)">
+</p>
+
+for every vector **x**⊥ in T⊥. This feature of functions with low effective dimensionality implies that the set of global minimizers of f in X, which we call G, contains infinitely many points. In particular, if X = R^D then the set of global minimizers G is an affine subspace of dimension D-d_e. If X is a hyper-box then G is a polytope (see an illustration futher down below). 
 
 
 ### 2 Two frameworks we would like to test
