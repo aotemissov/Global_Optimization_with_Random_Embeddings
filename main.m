@@ -8,7 +8,6 @@ function main(framework,name_of_solver,list_of_functions)
 %list_of_functions must be a column of strings, e.g., ["Beale_10"; "Hartmann3_100"; ...]
 
 warning('off', 'all');
-addpath(genpath('/home/otemissov/matlab/github'));
 
 how_many_functions = size(list_of_functions,1); %number of functions to be solved
 
