@@ -1,6 +1,12 @@
 function [dim, min, argmin, bounds] = Extract_function(name)
-% This function extacts information about the specified test function.
-% Information such as effective dimension, global minima, global minimizers and search domain are provided
+% This function extacts information about the low-dimensional counterpart 
+% of the high-dimensional function requested.
+
+% name - name of the high-dimensional function about whom information is 
+% requested, e.g. 'Branin_100'
+
+% Information such as effective dimension, global minima, global minimizers 
+% and search domain are provided upon request
 
 switch name
     case 'Styblinski_Tang'

@@ -1,6 +1,13 @@
 function [y] = Test_set(xx,name_of_function)
-% this function contains the 
-%
+
+% This file contains function handles of our high-dimensional test set.
+% For example, Beale_10 is 10-dimensional function with low effective
+% dimensionality created from the low-dimnesional Beale function.
+
+% xx - point in R^D queried, 
+% name_of_function - name of the function that is being solved
+% y - is equal to f(xx)
+
 global rotation_matrices
 
 switch name_of_function

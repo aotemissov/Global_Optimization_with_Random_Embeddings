@@ -1,4 +1,12 @@
 function Results = solvers_XREGO(name_of_function,framework,name_of_solver,Results)
+
+% name_of_function - name of the function that will be solved, e.g. "Branin_100"
+% framework - a particular X-REGO variant that is being used, e.g., 'AREGO'
+% name_of_solver - the name of the optimization solver that is being used, e.g. DIRECT, BARON, KNITRO
+% Results - a structure array where the data from the experiment is saved
+
+% NOTE: to initiate the `no embedding', REGO and/or X-REGO experiments run main.m file 
+
 global rotation_matrices
 
 tol = 10^(-3);

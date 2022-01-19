@@ -1,8 +1,10 @@
 function Results = solvers_no_emb_vs_XREGO(name_of_function,name_of_solver,Results)
 
-% name_of_function - 
-% name_of_solver - 
-% Results - 
+% name_of_function - name of the function that will be solved, e.g. "Branin_100"
+% name_of_solver - the name of the optimization solver, e.g. DIRECT, BARON, KNITRO
+% Results - a structure array where the data from the experiment is saved
+
+% NOTE: to initiate the `no embedding', REGO and/or X-REGO experiments run main.m file 
 
 global rotation_matrices
 
