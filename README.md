@@ -79,7 +79,7 @@ Moreover, we have
 	  <img width="190" src="https://latex.codecogs.com/svg.latex?f%5E*%20%3D%20f%28%5Cmathbf%7Bx%7D_%7B%5Ctop%7D%5E*%29%20%3D%20f%28%5Cmathbf%7Bx%7D_%7B%5Ctop%7D%5E*&plus;%5Cmathbf%7Bx%7D_%7B%5Cperp%7D%29" alt="(P)">
 </p>
 
-for every vector **x**⊥ in T⊥. This feature of functions with low effective dimensionality implies that the set of global minimizers of f in X, which we call G*, contains infinitely many points. In particular, if X = R^D then the set of global minimizers G* is an affine subspace[^1] of dimension D-d_e. If X is a hyper-box then G* is a polytope (see an illustration futher down below). 
+for every vector **x**⊥ in T⊥. This feature of functions with low effective dimensionality implies that the set of global minimizers of f in X, which we call G*, contains infinitely many points. In particular, if X = R^D then the set of global minimizers G* is an affine subspace[^1] of dimension D-d_e. If X is a hyper-box then G* is a polytope (see the illustrations futher down below). 
 
 [^1]: In fact, G* is a union of affine subspaces. 
 
@@ -110,7 +110,7 @@ Let us now briefly describe and illustrate the geometry of REGO. In the below fi
 #### 2.2 X-REGO
 Unlike REGO, where we draw only one **A**, X-REGO uses multiple random embeddings, solving (RPX) repeatedly, approximately and possibly, adaptively. The reason for using many embeddings is the fact that with embeddings now restricted to be inside the box [−1, 1]^D the probability of successful reduction is decreased. Our theoretical analysis derives a lower bound on this probability in the case when d is equal or larger than d_e. We show that this success probability is positive and that it depends on both the effective subspace and the ambient dimension D. However, in the case when the effective subspace is aligned with the coordinate axes, we show that the dependence on D in this lower bound is at worst polynomial. Using the success probability of the reduced subproblems, we prove that X-REGO converges globally, with probability one, and linearly in the number of embeddings, to a neighbourhood of a constrained global minimizer. Our numerical experiments on special structure functions illustrate our theoretical findings and the improved scalability of X-REGO variants when coupled with state-of-the-art global — and even local — optimization solvers for the subproblems.
 
-
+The below figure sketches the linear mapping **y** → **Ay** + **p** that maps points from R^d to points in the affine subspace **p** + range(**A**) in R^D. For (RPX) to be successful in solving the original problem (P), the figure shows that it is sufficient that the red line segment (the feasible set of (reduced) solutions in R^d mapped to R^D) intersects the blue line segment (the set of global minimizers G*). Our ideas in the analysis of success probability of (RPX) stems from this crucial observation.  
 
 <p align="center">
 	  <img width="370" src="https://user-images.githubusercontent.com/44117093/149952744-7bfcd1ae-40a5-4c6b-b133-5f0b2177bd75.png" alt="XREGO">
