@@ -1,6 +1,6 @@
 function Results = solvers_REGO(name_of_function,name_of_solver,Results)
-% This function 
-% name_of_function - 
+
+% name_of_function - name of the function that will be solved, e.g. "Branin_100"
 % name_of_solver - the name of the optimization solver, e.g. DIRECT, BARON, KNITRO
 % Results - a structure array where the data from the experiment is saved
 
