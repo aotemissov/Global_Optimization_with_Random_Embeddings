@@ -14,7 +14,8 @@ This project was funded and supported by the _Alan Turing Insitute_ under _The E
 
 - Section 1.2 contains the backgorund of global optimization (and its challenges) with references to important works in the field. 
 - Section 1.3 gives the overview of our research and provides a brief literature review. 
-- Section 2 introduces two dimensionality reduction frameworks (REGO and X-REGO)
+- Section 1.4 formally defines functions with low effective dimensionality
+- Section 2 introduces two dimensionality reduction frameworks (REGO and X-REGO) and provide brief geometric descriptions
 - Section 3 decribes the numerical experiments we conducted to test the effectiveness of REGO and X-REGO.
 	- Section 3.1 formally outlines the REGO and X-REGO algorithms and proposes different variants of X-REGO.
 	- Section 3.2 provides the test set of functions used in the experiments.
@@ -118,7 +119,8 @@ The below figure sketches the linear mapping **y** → **Ay** + **p** that maps 
 
 #### Extensions to general objective functions
 
-
+In [Cartis et al. (2021)](https://arxiv.org/abs/2107.12102), we propose to extend the scope of (RPX) to general objectives (that may not possess low effective dimensionality). We develop a novel analysis to bound the probability of success of (RPX) for Lipschitz continuous functions based on connections between (RPX) and the field of conic integral geometry (see, e.g., [Amelunxen et al. (2014)](https://arxiv.org/abs/1303.6672), [Oymak & Tropp (2017)](https://arxiv.org/abs/1511.09433)). This success probability is then used to show convergence of X-REGO to an approximate global solution of the original problem, under weak assumptions on the problem (having a strictly feasible global solution) and on the solver (guaranteed to find an approximate global solution of the reduced problem with sufficiently high probability). Our analysis, unlike (RP) or (RPX) for functions with low effective dimensionality, is applicable for any embedding dimension d ≥ 1.
+ 
 
 ### 3 Experiments
 
