@@ -2,7 +2,7 @@ function main(framework,name_of_solver,list_of_functions)
 %This code is the stating point for running the REGO and XREGO
 %experiments. 
 
-%framework - choose the framework you want to test, i.e., no embedding, REGO, X-REGO
+%framework - choose the framework you want to test, i.e., 'no embedding_vs_REGO', 'REGO', 'AREGO'
 %name_of_solver - choose the solver you want to test with, e.g., DIRECT, BARON, KNITRO
 %list_of_functions - a text file that contains a list of functions that the user would like to solve,
 %list_of_functions must be a column of strings, e.g., ["Beale_10"; "Hartmann3_100"; ...]
