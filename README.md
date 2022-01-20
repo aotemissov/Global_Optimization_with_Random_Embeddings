@@ -240,15 +240,15 @@ with performance ratio ![](https://latex.codecogs.com/svg.latex?%5Calpha%20%5Cge
 
 Here, we provide a brief description of the roles of uploaded files. 
 
-- _main.m_ - the main MATLAB file which initiates the REGO and X-REGO experiments
+- _main.m_ - the main MATLAB file which initiates the REGO and X-REGO experiments.
 - _solvers_REGO.m_ - the file where solver parameters (of BARON, DIRECT, KNITRO) for REGO are specified and where (RP) is solved by a solver. If you want to try out another solver, this is the place to add it. This file also saves the results into a struct file, which is converted into mat file in main.m.  
 - _solveers_XREGO.m_ - similar to _solvers_REGO.m_ but done for X-REGO ((RPX) is solved here). 
 - _solvers_no_emb_vs_REGO.m_ - the file where solver parameters (of BARON, DIRECT, KNITRO) for `no embedding' are specified and where (P) is solved by a solver. If you want to try out another solver, this is the place to add it. This file also saves the results into a struct file, which is converted into mat file in main.m.
 - _solvers_no_emb_vs_XREGO.m_ - very similar to _solvers_no_emb_vs_REGO.m_ but where `no embedding' is compared to X-REGO. The reason we run no-embedding twice is because information is captured in a different way here.   
 - _Matrices_Q.mat_ - contains the entries of orthogonal **Q** matrices created for each function in the test set (refer to Section 3.2 above)
-- _list_of_functions_ - a text file that contains a list of functions that the user would like to solve
+- _list_of_functions_ - a text file that contains a list of functions that the user would like to solve.
 
-- _Complementary_functions/DIRECT_with_linear_constraints.m_ - a special function created for X-REGO experiments with DIRECT solver to deal with linear constraints 
+- _Complementary_functions/DIRECT_with_linear_constraints.m_ - a special function created for X-REGO experiments with DIRECT solver to deal with linear constraints.
 - _Complementary_functions/Test_set.m_ - contains the list of high-dimensional functions (created as described in Section 3.2) that we are testing. 
 - _Complementary_functions/Extract_function.m_ - this function is essentially Table 1, it helps to extract information about the initial low-dimensional function  (from which the repsective high-dimensional functions were created).
 - _Complementary_functions/tight_subplot.m_ - this function allows to draw multiple subplots in a plot. This function was created by Pekka Kumpulainen (2022). tight_subplot(Nh, Nw, gap, marg_h, marg_w) (https://www.mathworks.com/matlabcentral/fileexchange/27991-tight_subplot-nh-nw-gap-marg_h-marg_w), MATLAB Central File Exchange. Retrieved January 17, 2022.
