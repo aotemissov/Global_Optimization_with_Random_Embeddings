@@ -11,11 +11,10 @@ This research uses the ideas of dimensionality reduction prominent in the machin
 This project was funded and supported by the _Alan Turing Insitute_ under _The Engineering and Physical Sciences Research Council (EPSRC)_ grant EP/N510129/1, the _Turing Project Scheme_ (PI: [Coralia Cartis](https://www.maths.ox.ac.uk/people/coralia.cartis)) and by the _National Physical Laboratory_.
 
 #### 1.1 Outline
-
 - Section 1.2 contains the backgorund of global optimization (and its challenges) with references to important works in the field. 
 - Section 1.3 gives the overview of our research and provides a brief literature review. 
-- Section 1.4 formally defines functions with low effective dimensionality
-- Section 2 introduces two dimensionality reduction frameworks (REGO and X-REGO) and provide brief geometric descriptions
+- Section 1.4 formally defines functions with low effective dimensionality.
+- Section 2 introduces two dimensionality reduction frameworks (REGO and X-REGO) and provides brief geometric descriptions.
 - Section 3 decribes the numerical experiments we conducted to test the effectiveness of REGO and X-REGO.
 	- Section 3.1 formally outlines the REGO and X-REGO algorithms and proposes different variants of X-REGO.
 	- Section 3.2 provides the test set of functions used in the experiments.
@@ -139,7 +138,7 @@ Below is the outline of REGO (Random Embeddings for Global Optimization) algorit
 
 1. _Initialise_ d _and_ δ _and define_ Y = [−δ, δ]^d
 2. _Generate a_ D × d _Gaussian matrix_ **A**
-3. _Apply a global optimization solver (e.g. BARON, DIRECT, KNITRO) to_ (RP) _until a termination criterion is satisfied, and define ymin to be the generated (approximate) solution of_ (RP).
+3. _Apply a global optimization solver (e.g. BARON, DIRECT, KNITRO) to_ (RP) _until a termination criterion is satisfied, and define y\_{min} to be the generated (approximate) solution of_ (RP).
 4. _Reconstruct_ x_{min} = Ay_{min}
 
 ------------------------------------------------end of Algorithm 1------------------------------------------------
