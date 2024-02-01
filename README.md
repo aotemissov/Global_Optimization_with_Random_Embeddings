@@ -260,7 +260,7 @@ Here, we provide a brief description of the roles of uploaded files.
 
 ### 4 Project on active subspaces
 
-We have recently published a new article (see Cartis et al. (2024)), where we establish links between active subspaces and functions with low effective dimensionality. The code used to conduct the experiments in Cartis et al. (2024) are available in the folder _Active_subspaces_
+We have recently published a new article (see Cartis et al. (2024)), where we establish links between active subspaces and functions with low effective dimensionality. The code used to conduct the experiments in Cartis et al. (2024) are available in the folder _Active_subspaces_.
 
 
 ### Main references
