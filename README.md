@@ -228,7 +228,7 @@ KNITRO ([Byrd et al., 2006](https://link.springer.com/chapter/10.1007/0-387-3006
 
 #### 3.4 Performance profile
 
-We compare the results (for X-REGO experiment) using performance profiles ([Dolan & More (2002)](https://link.springer.com/article/10.1007/s101070100263)), which measure the proportion of problems solved by the algorithm in less than a given budget defined based on the best performance among the algorithms considered. More precisely, for each solver (BARON, DIRECT and KNITRO), and for each algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) (the above-mentioned variants of X-REGO and ‘no-embedding’), we record ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BN%7D_p%28%5Cmathcal%7BA%7D%29), the computational cost of running algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) to solve problem p within accuracy ![](https://latex.codecogs.com/svg.latex?%5Cepsilon). Let ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BN%7D_p%5E*) be the minimum computational cost required for problem p by any algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D). The performance (probability) of algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) on the problem set ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BP%7D) is defined as
+We compare the results (for X-REGO experiment) using performanceyt5432  profiles ([Dolan & More (2002)](https://link.springer.com/article/10.1007/s101070100263)), which measure the proportion of problems solved by the algorithm in less than a given budget defined based on the best performance among the algorithms considered. More precisely, for each solver (BARON, DIRECT and KNITRO), and for each algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) (the above-mentioned variants of X-REGO and ‘no-embedding’), we record ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BN%7D_p%28%5Cmathcal%7BA%7D%29), the computational cost of running algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) to solve problem p within accuracy ![](https://latex.codecogs.com/svg.latex?%5Cepsilon). Let ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BN%7D_p%5E*) be the minimum computational cost required for problem p by any algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D). The performance (probability) of algorithm ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BA%7D) on the problem set ![](https://latex.codecogs.com/svg.latex?%5Cmathcal%7BP%7D) is defined as
 
 <p align="center">
 	  <img width="280" src="https://latex.codecogs.com/svg.latex?%5Cpi_%7B%5Cmathcal%7BA%7D%7D%28%5Calpha%29%20%3D%20%5Cfrac%7B%7C%5C%7B%20p%5Cin%20%5Cmathcal%7BP%7D%3A%5Cmathcal%7BN%7D_p%28%5Cmathcal%7BA%7D%29%20%5Cleq%20%5Calpha%20%5Cmathcal%7BN%7D_p%5E*%20%5C%7D%7C%7D%7B%7C%5Cmathcal%7BP%7D%7C%7D%2C" alt="(P)">
@@ -258,9 +258,14 @@ Here, we provide a brief description of the roles of uploaded files.
 
 **Remark**. For the above code to run successfully, you need to include the codes (files) of the respective solvers in the MATLAB path. BARON and KNITRO are commercial solvers. Check out their websites: [BARON](https://minlp.com/baron-solver), [KNITRO](https://www.artelys.com/solvers/knitro/). Visit [this website](https://ctk.math.ncsu.edu/Finkel_Direct/) to get the DIRECT solver which should be free of charge. However, note that to generate the plots based on our data, you don't need the solvers. 
 
+### 4 Project on active subspaces
+
+We have recently published a new article (see Cartis et al. (2024)), where we establish links between active subspaces and functions with low effective dimensionality. The code used to conduct the experiments in Cartis et al. (2024) are available in the folder _Active_subspaces_
+
+
 ### Main references
 
-This work is based on the following articles and a thesis: 
+This work is based on the following work: 
 
 * C. Cartis, X. Liang, E. Massart, and A. Otemissov. [Learning the subspace of variation for global optimization of functions with low effective dimension.](https://arxiv.org/abs/2401.17825), arXiv preprint: 2401.17825, 2024
   
