@@ -262,13 +262,14 @@ Here, we provide a brief description of the roles of uploaded files.
 
 This work is based on the following articles and a thesis: 
 
-* C. Cartis and A. Otemissov. [A dimensionality reduction technique for unconstrained global optimization of functions with low effective dimensionality](https://academic.oup.com/imaiai/advance-article-abstract/doi/10.1093/imaiai/iaab011/6278168), *Information and Inference: A Journal of the IMA*, 2021
+* C. Cartis, X. Liang, E. Massart, and A. Otemissov. [Learning the subspace of variation for global optimization of functions with low effective dimension.](https://arxiv.org/abs/2401.17825), arXiv preprint: 2401.17825, 2024
+  
+* C. Cartis, E. Massart, and A. Otemissov. [Bound-constrained global optimization of functions with low effective dimensionality using multiple random embeddings.](https://link.springer.com/article/10.1007/s10107-022-01812-9), 
+*Mathematical Programming*, 198:997–1058, 2023
 
-* C. Cartis, E. Massart, and A. Otemissov. [Constrained global optimization of functions with low effective dimensionality using multiple random embeddings](https://arxiv.org/abs/2009.10446). 
-arXiv e-prints, art. arXiv:2009.10446, 2020
+* C. Cartis, E. Massart, and A. Otemissov. [Global optimization using random embeddings](https://link.springer.com/article/10.1007/s10107-022-01871-y). *Mathematical Programming*, 200:781-829, 2023
 
-* C. Cartis, E. Massart, and A. Otemissov. [Global optimization using random embeddings](https://arxiv.org/abs/2107.12102). 
-arXiv e-prints, art. arXiv:2107.12102 , 2021
+* C. Cartis and A. Otemissov. [A dimensionality reduction technique for unconstrained global optimization of functions with low effective dimensionality](https://academic.oup.com/imaiai/advance-article-abstract/doi/10.1093/imaiai/iaab011/6278168), *Information and Inference*, 11(1):167–201, 2022
 
 * A. Otemissov. [Dimensionality reduction techniques for global optimization](https://ora.ox.ac.uk/objects/uuid:aa441eb8-c2ad-4da3-abfc-291bb0fdeb1f). PhD thesis, University of Oxford, 2020
 
